@@ -29,6 +29,8 @@
     </div>
 </div>
 
+/////////below form for users to post comments//////////
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="row">
@@ -45,6 +47,9 @@
     <div class="panel-body">
         <blockquote id="post-comment">
             <div class="row">
+
+                /// Below form allows a user to enter his/her name, 
+                /// e-mail, address, and comments
                 <form method="post" action="/images/{{image.uniqueId}}/comment">
                 <div class="form-group col-sm-12">
                     <label class="col-sm-2 control-label" for="name">Name:</label>
@@ -74,5 +79,19 @@
                 </form>
             </div>
         </blockquote>
+        <ul class="media-list">
+            {{#each comments}}
+            <li class="media">
+                <a class="pull-left" href="#">
+                    <img class="media-object img-circle" src="http://www.gravatar.com/avatar/{{gravatar}}?d=monsterid&s=45">
+                </a>
+                <div class="media-body">
+                    {{comment}}
+                    <br/><strong class="media-heading">{{name}}</strong>
+                    <small class="text-muted">{{timeago timestamp}}</small>
+                </div>
+            </li>
+            {{/each}}
+        </ul>  
     </div>
 </div>
